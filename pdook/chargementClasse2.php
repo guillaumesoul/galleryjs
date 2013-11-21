@@ -17,10 +17,12 @@
 	
 	$db = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$PARAM_nom_bd, $PARAM_utilisateur, $PARAM_mot_passe);
    
-	//$image = new Image(7,"image de ouf",3,"url de ouf","alleluiah tralala");
+	$image = new Image(23,"image de ouf",3,"url de ouf","alleluiah tralala");
 	//var_dump($image);
+	//$id = 5;
 	$manager = new ImagesManager($db);
 
-	$manager->add($image);
+	$manager->update($image);
+	//var_dump($manager->update($image));
 
 ?>

@@ -23,7 +23,7 @@ class ImagesManager
 
   public function delete(Image $image)
   {
-    $this->_db->exec('DELETE FROM image WHERE id = '.$image->afficherId());
+    $this->_db->exec('DELETE FROM image WHERE idImage = '.$image->afficherId());
   }
 
   public function get($id)
@@ -33,7 +33,7 @@ class ImagesManager
     $q = $this->_db->query('SELECT * FROM image WHERE idImage = '.$id);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-    return new Image( $donnees->idImage , $donnees->nomImage , $donnees->idCategorie , $donnees->urlImage , $donnees->descriptionImage );
+    return ($donnees);
   }
 
   public function getList()
@@ -44,7 +44,8 @@ class ImagesManager
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {
-      $images[] = new Image( $donnees->idImage , $donnees->nomImage , $donnees->idCategorie , $donnees->urlImage , $donnees->descriptionImage );
+      $images[] = ($donnees);
+     
     }
 
     return $images;
@@ -55,7 +56,7 @@ class ImagesManager
     //UPDATE FROM FABIEN
     //$q = $this->_db->prepare('UPDATE image SET idImage = :nom, description = :description, location = :location, gallery_id = :gallery_id WHERE id = :id');
 
-    $q = $this->_db->prepare('UPDATE image SET SET nomImage = :nom, idCategorie = :categorie , urlImage = :url  , descriptionImage = :description WHERE idImage = :id');
+    $q = $this->_db->prepare('UPDATE image SET nomImage = :nom, idCategorie = :categorie , urlImage = :url  , descriptionImage = :description WHERE idImage = :id');
 
     $q->bindValue(':id', $image->afficherId());
     $q->bindValue(':nom', $image->afficherNom());
