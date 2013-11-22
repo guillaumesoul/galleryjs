@@ -14,17 +14,17 @@ class ImagesManager
 
     $q = $this->_db->prepare('INSERT INTO image SET nomImage = :nom, idCategorie = :categorie , urlImage = :url  , descriptionImage = :description');
 
-    $q->bindValue(':nom', $image->afficherNom());
-    $q->bindValue(':categorie', $image->afficherCategorie());
-    $q->bindValue(':url', $image->afficherUrl());
-    $q->bindValue(':description', $image->afficherDescription());
+    $q->bindValue(':nom', $image->getNom());
+    $q->bindValue(':categorie', $image->getCategorie());
+    $q->bindValue(':url', $image->getUrl());
+    $q->bindValue(':description', $image->getDescription());
 
     $q->execute();
   }
 
   public function delete(Image $image)
   {
-    $this->_db->exec('DELETE FROM image WHERE idImage = '.$image->afficherId());
+    $this->_db->exec('DELETE FROM image WHERE idImage = '.$image->getId());
   }
 
   public function get($id)
@@ -59,8 +59,7 @@ class ImagesManager
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {
-      echo "<img id=".$donnees["idImage"]." src=".$donnees["urlImage"]." width=220>";
-      //echo "<img id=voiture$donnees[0] src=$donnees[3] width=220>";
+      echo "<img id=".$donnees["idImage"]." src=".$donnees["urlImage"]." width=210>";
     }
 
     return $images;
@@ -73,11 +72,11 @@ class ImagesManager
 
     $q = $this->_db->prepare('UPDATE image SET nomImage = :nom, idCategorie = :categorie , urlImage = :url  , descriptionImage = :description WHERE idImage = :id');
 
-    $q->bindValue(':id', $image->afficherId());
-    $q->bindValue(':nom', $image->afficherNom());
-    $q->bindValue(':categorie', $image->afficherCategorie());
-    $q->bindValue(':url', $image->afficherUrl());
-    $q->bindValue(':description', $image->afficherDescription());
+    $q->bindValue(':id', $image->getId());
+    $q->bindValue(':nom', $image->getNom());
+    $q->bindValue(':categorie', $image->getCategorie());
+    $q->bindValue(':url', $image->getUrl());
+    $q->bindValue(':description', $image->getDescription());
 
     $q->execute();
   }

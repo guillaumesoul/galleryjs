@@ -9,22 +9,27 @@ class Categorie{
 	*/
 
 	private $_id;
-	private $_nom;	
+	private $_nom;
+	private $_idGalerie;
+	private $_descriptionGalerie;
+
     
     public function __construct($id , $nom ) // Constructeur demandant 2 paramètres
     {
     	echo 'Appel du constructeur ! '; // Message s'affichant une fois que tout objet est créé.
     	$this->setId($id);
-    	$this->setNom($nom); 
+    	$this->setNom($nom);
+    	$this->setId($idGalerie);
+    	$this->setId($_descriptionGalerie); 
 
 	public function setId($value) {
 		$this->_id = $value;
 	}
 	
 
-	public function afficherId()
+	public function getId()
     {
-    	echo $this->_id;
+    	return $this->_id;
     }   
 
 	public function setNom($value) {
@@ -35,9 +40,29 @@ class Categorie{
 	    }
 	}
 
-	public function afficherNom() {
-		echo $this->_nom;
+	public function getNom() {
+		return $this->_nom;
 	}
+
+	public function setIdGalerie($value) {
+		$this->_idGalerie = $value;
+	}
+	
+
+	public function getIdGalerie()
+    {
+    	return $this->_idGalerie;
+    }
+
+	public function setDescriptionCategorie($value) {
+		$this->_descriptionGalerie = $value;
+	}
+	
+
+	public function getDescriptionCategorie()
+    {
+    	return $this->_descriptionGalerie;
+    }    	
 
 }
 

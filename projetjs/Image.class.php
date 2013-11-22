@@ -29,7 +29,7 @@ class Image{
 	}
 	
 
-	public function afficherId()
+	public function getId()
     {
     	return $this->_id;
     }   
@@ -42,7 +42,7 @@ class Image{
 	    }
 	}
 
-	public function afficherNom() {
+	public function getNom() {
 		return $this->_nom;
 	}
 
@@ -53,7 +53,7 @@ class Image{
 	    }
 	}
 
-	public function afficherCategorie() {
+	public function getCategorie() {
 		return $this->_categorie;
 	}
 
@@ -64,7 +64,7 @@ class Image{
 	    }
 	}
 
-	public function afficherUrl() {
+	public function getUrl() {
 		return $this->_url;
 	}
 
@@ -75,27 +75,9 @@ class Image{
 	    }
 	}
 
-	public function afficherDescription() {
+	public function getDescription() {
 		return $this->_description;
 	}	
-	//$voiture1 = new Image(1 , "mercedes" , "categorie1" , "url");
-	
-	//fonction d'hydratation
-	public function hydrate(array $donnees)
-	{
-		if (isset($donnees['id']))
-		{
-		$this->setId($donnees['id']);
-		}
-
-		if (isset($donnees['nom']))
-		{
-		$this->setNom($donnees['nom']);
-		}
-	    
-	  // …
-	}	
-
 }
 
 ?>
