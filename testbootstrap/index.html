@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) 
+    <script src="https://code.jquery.com/jquery.js"></script>-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap-theme.css"></script>
+    <SCRIPT  TYPE="text/javascript" SRC="js/jQuery.js"></SCRIPT> 
+    <SCRIPT  TYPE="text/javascript" SRC="js/myscript.js"></SCRIPT>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div id="bloc_page">
+            <header>
+              <div id="titre_principal">
+                  <h1>Galleries de photos</h2>
+              </div>
+
+              <nav class="navbar navbar-default" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">Ma galerie de photos</a>
+                </div>              
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#" id="gallerie1" name="gallerie1">Gallerie 1</a></li>
+                    <li><a href="#" id="gallerie2" name="gallerie2">Gallerie 2</a></li>
+                    <li><a href="#">Gallerie 3</a></li>
+                    <li><a href="#" id="createcategorie">Créer catégorie</a></li>
+                  </ul>
+                  <!-- champ search  -->
+                  <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </form>
+                </div><!-- /.navbar-collapse -->
+              </nav>     
+            </header>
+
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                      <ul class="nav nav-pills">
+                        <li><a href="#">catégorie1</a></li>
+                        <li><a href="#">catégorie2</a></li>
+                        <li><a href="#">catégorie3</a></li>
+                      </ul>
+                      <article>
+                          <h3>Photos de la gallerie</h3>
+                          <p id="paragraphe1">Les photos seront affichées ici</p>
+                          <p id="paragraphe2">et une petite phrase sera affichée ici</p>
+                          <p id="paragraphe3">les infos de DB affichées ici</p>
+                      </article>
+                  </div>
+                </div>  
+            
+            <section>
+                <article>
+                    <h1><img src="images/ico_epingle.png" alt="Catégorie voyage" class="ico_categorie" />Photos de la gallerie</h1>
+                    <p id="paragraphe1">Les photos seront affichées ici</p>
+                    <p id="paragraphe2">et une petite phrase sera affichée ici</p>
+                </article>
+
+                <!-- formulaire de création de catégorie -->
+                <div id="createcategorie" >
+                  <form id="formcategorie">
+                    <p><label>nom</label><input type="text" id="nomcategorie"></p>
+                    <p><label>id de la galerie </label><input type="text" id="idgalerie"></p>
+                    <p><label>description </label><input type="text" id="description"></p>
+                    <input type="submit" value="valider" id="submitcategorie">
+                    <div id="dialog">creation de categorie</div>
+                  </form>
+                </div>
+
+            </section>
+            
+            <footer>
+                <div id="tweet">
+                    <h1>Mon dernier tweet</h1>
+                    <p>Hii haaaaaan !</p>
+                    <p>le 12 mai à 23h12</p>
+                </div>
+                <div id="mes_photos">
+                    <h1>Mes photos</h1>
+                    <p><img src="images/photo1.jpg" alt="Photographie" /><img src="images/photo2.jpg" alt="Photographie" /><img src="images/photo3.jpg" alt="Photographie" /><img src="images/photo4.jpg" alt="Photographie" /></p>
+                </div>
+                <div id="mes_amis">
+                    <h1>Mes amis</h1>
+                    <ul>
+                        <li><a href="#">Pupi le lapin</a></li>
+                        <li><a href="#">Mr Baobab</a></li>
+                        <li><a href="#">Kaiwaii</a></li>
+                        <li><a href="#">Perceval.eu</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Belette</a></li>
+                        <li><a href="#">Le concombre masqué</a></li>
+                        <li><a href="#">Ptit prince</a></li>
+                        <li><a href="#">Mr Fan</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+
+  </body>
+</html>
