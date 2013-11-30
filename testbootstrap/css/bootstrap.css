@@ -19,13 +19,33 @@ main,
 nav,
 section,
 summary {
-  display: inline-block;
+  display: block;
 }
 
+
+section{
+  display: block;
+  margin-left: 310px;
+}
+
+/* menu gauche */
 aside{
-  display: inline-block;
+  float: left;
   vertical-align: left;
-  width: 350px;
+  width: 300px;
+}
+
+.right{
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+#submitcategorie{
+  margin-left: 150px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 audio,
@@ -1870,6 +1890,8 @@ legend {
 
 label {
   display: inline-block;
+  width: 110px;
+  margin-left: 10px;
   margin-bottom: 5px;
   font-weight: bold;
 }

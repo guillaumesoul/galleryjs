@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Bootstrap 101 Template</title>
@@ -27,7 +26,7 @@
 
                   <div class="right">
                     <form id="sessionform">
-                      <label>login</label><input type="text" id="login" name="login"><br>
+                      <label>login </label><input type="text" id="login" name="login"><br>
                       <label>password</label><input type="text" id="password" name="password">
                       <input type="submit" id="submitsessionform" value="login">
                     </form>  

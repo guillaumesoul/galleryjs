@@ -54,7 +54,21 @@ $(document).ready(function() {
             function(data){
             }
         );
-    });    
+    }); 
+
+    $('#sessionform').submit(function(e){
+         
+        // On envoi la requête AJAX
+        $.getJSON(
+            'createCategorie.php',
+            {
+                login: $('#login').val(),
+                password: $('#password').val(),
+            },
+            function(data){
+            }
+        );
+    });         
 
 
 });
