@@ -9,7 +9,6 @@
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 
 article,
-aside,
 details,
 figcaption,
 figure,
@@ -20,7 +19,13 @@ main,
 nav,
 section,
 summary {
-  display: block;
+  display: inline-block;
+}
+
+aside{
+  display: inline-block;
+  vertical-align: left;
+  width: 350px;
 }
 
 audio,
