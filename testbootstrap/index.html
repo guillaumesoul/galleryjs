@@ -25,6 +25,16 @@
     <div id="bloc_page">
             <header>
 
+<?php
+session_start();  // démarrage de la session
+if(isset($_SESSION['pseudo']))
+{
+  echo 'Vous êtes connecté en tant que <span style="color: 0000FF;">' . $_SESSION['pseudo'] . '</span><br><br>';
+  echo '<a href="membre.php">Accéder à la zone membre</a><br><br>';
+  echo '<a href="log.php?action=logout">Logout</a><br><br>';
+}
+?>
+
                   <div class="right">
                     <form id="sessionform">
                       <label>login</label><input type="text" id="login" name="login"><br>

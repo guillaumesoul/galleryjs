@@ -11,7 +11,6 @@ class Categorie{
     public function __construct( $nom , $idGalerie , $descriptionGalerie) // Constructeur demandant 2 paramètres
     {
     	echo 'Appel du constructeur ! '; // Message s'affichant une fois que tout objet est créé.
-    	$this->setId($id);
     	$this->setNom($nom);
     	$this->setIdGalerie($idGalerie);
     	$this->setDescriptionCategorie($descriptionGalerie); 

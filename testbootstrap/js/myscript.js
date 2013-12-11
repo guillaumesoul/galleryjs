@@ -14,21 +14,8 @@ $(document).ready(function() {
         });
     });
 
-    $("#gallerie1").click(function() {                
-
-      $.ajax({    
-        type: "GET",
-        url: "displayCategorie.php",   
-        data: "categorie=1",       
-        dataType: "html",                  
-        success: function(response){                    
-            $("#categorie").html(response); 
-            }
-
-        });
-    });
-
-    $("#createcategorie").click(function() {                
+    //creation de nouvelles categories
+    $("#testcat").click(function() {                
 
       $.ajax({   
         type: "GET",
@@ -41,34 +28,60 @@ $(document).ready(function() {
         });
     }); 
 
-    $('#formcategorie').submit(function(e){
+    // formulaire de creation de categories
+    $('#formcategorie').on('submit', function() {
          
-        // On envoi la requête AJAX
-        $.getJSON(
-            'createCategorie.php',
-            {
-                nom: $('#nomcategorie').val(),
-                idGalerie: $('#idgalerie').val(),
-                Description: $('#description').val()
-            },
-            function(data){
-            }
-        );
+        // je récupère les valeurs
+        var nomcategorie = $('#nomcategorie').val();
+        var idgalerie = $('#idgalerie').val();
+        var descriptioncategorie = $('#descriptioncategorie').val();
+ 
+        // je vérifie une première fois pour ne pas lancer la requête 
+        if(nomcategorie == '' || idgalerie == '' || descriptioncategorie == '') {
+            alert('Les champs doivent êtres remplis');
+        } else {
+            // appel Ajax
+            $.ajax({
+                url: $(this).attr('action'), // le nom du fichier indiqué dans le formulaire
+                type: $(this).attr('method'), // la méthode indiquée dans le formulaire
+                data: $(this).serialize(), // je sérialise les données 
+                success: function(response) {
+                    $("#test").html(response);               
+                }
+            });
+        }
+        return false; // j'empêche le navigateur de soumettre lui-même le formulaire
     }); 
 
-    $('#sessionform').submit(function(e){
-         
-        // On envoi la requête AJAX
-        $.getJSON(
-            'createCategorie.php',
-            {
-                login: $('#login').val(),
-                password: $('#password').val(),
-            },
-            function(data){
-            }
-        );
-    });         
-
+    // formulaire de connexion utilisateur
+    $('#sessionform').on('submit', function() {
+ 
+        var pseudo = $('#pseudo').val();
+        var password = $('#password').val();
+ 
+        if(pseudo == '' || password == '') {
+            alert('Les champs doivent êtres remplis');
+        } else {
+            $.ajax({
+                url: $(this).attr('action'), // le nom du fichier indiqué dans le formulaire
+                type: $(this).attr('method'), // la méthode indiquée dans le formulaire
+                data: $(this).serialize(), // je sérialise les données 
+                success: function(response) { // je récupère la réponse du fichier PHP
+                    $("#paragraphe1").html(response); 
+                    // an fonction de la réponse admin ou user je redirige vers la page adequat
+                    if (response == "admin") {
+                        window.location = "indexadmin.php";
+                    }
+                    else if (response == "toto") {
+                        window.location = "index.php";
+                    }                 
+                }
+            });
+        }
+        return false; // j'empêche le navigateur de soumettre lui-même le formulaire
+    });
+  
+    
 
 });
+

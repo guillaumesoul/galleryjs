@@ -25,7 +25,7 @@ summary {
 
 section{
   display: block;
-  margin-left: 310px;
+  margin-left: 110px;
 }
 
 /* menu gauche */
@@ -36,10 +36,11 @@ aside{
 }
 
 .right{
-  display: inline-block;
+  display: block;
   margin-top: 10px;
-  margin-left: 30px;
+  margin-left: 80px;
   margin-bottom: 10px;
+  height: 80px;
 }
 
 #submitcategorie{

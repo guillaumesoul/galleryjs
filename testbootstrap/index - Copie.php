@@ -30,10 +30,42 @@
 			{
 			  echo '<div>';
 			  echo 'Vous êtes connecté en tant que <span style="color: 0000FF;">' . $_SESSION['pseudo'] . '</span><br>';
+			  echo '<a href="membre.php">Accéder à la zone d\'administration</a><br>';
 			  echo '<a href="log.php?action=logout">Logout</a><br>';
 			  echo '</div>';
 			}
-			  ?>				  
+			else
+			{
+			  // si la variable erreur est dans l'url
+			  if(isset($_GET['erreur']))
+			  {
+				// le compte n'existe pas
+				if($_GET['erreur'] == 1)
+				  echo '<span style="color: FF0000;">Le compte n\'existe pas</span>';
+				// mot de passe invalide
+				else if($_GET['erreur'] == 2)
+				  echo '<span style="color: FF0000;">Le mot-de-passe que vous avec entré est faux</span>';
+			  }
+			  ?>
+			  <div class="right">
+
+        <!-- Test 2 formulaire -->
+          <form id="sessionform" action="displayUser.php" method="post">
+              <label for="pseudo">Pseudo</label>
+              <input type="text" id="pseudo" name="pseudo" />
+           
+              <label for="password">Password</label>
+              <input type="text" id="password" name="password" />
+           
+              <input type="submit" id="envoyer" value="Envoyer" />
+          </form>
+				    <div id="userinfo"></div> 
+			  </div>
+		  
+			  <?php
+			}
+			?>			
+				  
               <!-- Menu de navigation -->
 			  <nav class="navbar navbar-default" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,6 +79,7 @@
                     <li class="active"><a href="#" id="gallerie1" name="gallerie1">Gallerie 1</a></li>
                     <li><a href="#" id="gallerie2" name="gallerie2">Gallerie 2</a></li>
                     <li><a href="#">Gallerie 3</a></li>
+                    <li><a href="#" id="createcategorie">Créer catégorie</a></li>
                   </ul>
                   <!-- champ search  -->
                   <form class="navbar-form navbar-left" role="search">
@@ -60,6 +93,21 @@
             </header>
 
             <aside>
+              <div class="panel panel-default">
+
+                <div id="createcategorie" >
+                  <form id="formcategorie">
+                    <div>
+                      <h3>Création de catégorie</h3>
+                      <p><label>nom</label><input type="text" id="nomcategorie"></p>
+                      <p><label>galerie id</label><input type="text" id="idgalerie"></p>
+                      <p><label>description </label><textarea id="description" name="description">Enter text here...</textarea></p>
+                      <input type="submit" value="Créer la catégorie" id="submitcategorie">
+                    </div>
+                  </form>
+                </div>
+
+              </div>
             </aside>   
 
               <!-- panneau latéral gauche -->
